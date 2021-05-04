@@ -13,7 +13,37 @@ let lightGrey = Color(red: 239 / 255, green: 243 / 255, blue: 244 / 255)
 
 struct LoginView: View {
 
-    @ObservedObject private var loginViewModel = LoginViewModel()
+    @EnvironmentObject var authService: AuthService
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var errorMessage: String = ""
+
+    private func login() {
+        if self.email.isEmpty || password.isEmpty {
+            self.errorMessage = "Campos incompletos."
+            return
+        }
+
+        // Request token from API
+        let defaults = UserDefaults.standard
+        WebServices().login(email: email, password: password, deviceName: UIDevice.current.name) { result in
+            switch result {
+                case .success(let token):
+                    // Save token to user defaults
+                    defaults.setValue(token, forKey: "token")
+
+                    // Authenticate user
+                    DispatchQueue.main.async {
+                        authService.isAuthenticated = true
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.errorMessage = "Hubo un error. Intentar de nuevo."
+                    }
+                    print(error.localizedDescription)
+            }
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -21,10 +51,10 @@ struct LoginView: View {
             VStack {
                 LogoImage()
                 LoginTitle()
-                EmailInput(email: self.$loginViewModel.email)
-                PasswordInput(password: self.$loginViewModel.password)
-                ErrorMessage(errorMessage: self.$loginViewModel.errorMessage)
-                Button(action: { loginViewModel.login() }, label: {
+                EmailInput(email: self.$email)
+                PasswordInput(password: self.$password)
+                ErrorMessage(errorMessage: self.$errorMessage)
+                Button(action: { self.login() }, label: {
                     LoginButtonContent()
                 })
             }
