@@ -26,11 +26,8 @@ struct LoginResponse: Decodable {
 }
 
 class WebServices {
-
+    
     func login(email: String, password: String, deviceName: String, completed: @escaping (Result<String, NetworkError>) -> Void) {
-
-        print(email)
-        print(password)
 
         guard let endpoint = URL(string: Environment.apiUrl.appending("authenticate")) else {
             completed(.failure(.invalidURL))
@@ -61,6 +58,30 @@ class WebServices {
             }
 
             completed(.success(token))
+        }.resume()
+    }
+    
+    func logout(token: String, completed: @escaping (Result<String, NetworkError>) -> Void) {
+
+        guard let endpoint = URL(string: Environment.apiUrl.appending("revoke")) else {
+            completed(.failure(.invalidURL))
+            return
+        }
+
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error == nil, let _ = data, let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 {
+                    completed(.success("Token was deleted."))
+                } else {
+                    completed(.failure(.invalidCredentials))
+                }
+            } else {
+                completed(.failure(.invalidCredentials))
+            }
         }.resume()
     }
 }
