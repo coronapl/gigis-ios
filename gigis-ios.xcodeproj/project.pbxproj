@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */; };
-		1528B5B6263DDDB6008BFF8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5B5263DDDB6008BFF8F /* ContentView.swift */; };
 		1528B5B8263DDDB8008BFF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5B7263DDDB8008BFF8F /* Assets.xcassets */; };
 		1528B5BB263DDDB8008BFF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */; };
+		1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5C2263DDF90008BFF8F /* LoginView.swift */; };
+		156D327C263F29B100FFF5D0 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D327B263F29B100FFF5D0 /* WebServices.swift */; };
+		158744F1263F2F2200548910 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158744F0263F2F2200548910 /* Environment.swift */; };
+		158744F5263F750300548910 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158744F4263F750300548910 /* HomeView.swift */; };
+		15AE14A92641C9A400E9309D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AE14A82641C9A400E9309D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1528B5B0263DDDB6008BFF8F /* gigis-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gigis-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gigis_iosApp.swift; sourceTree = "<group>"; };
-		1528B5B5263DDDB6008BFF8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1528B5B7263DDDB8008BFF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1528B5BC263DDDB8008BFF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1528B5BC263DDDB8008BFF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; usesTabs = 1; };
+		1528B5C2263DDF90008BFF8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		156D327B263F29B100FFF5D0 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		158744F0263F2F2200548910 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		158744F4263F750300548910 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		15AE14A82641C9A400E9309D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +60,10 @@
 		1528B5B2263DDDB6008BFF8F /* gigis-ios */ = {
 			isa = PBXGroup;
 			children = (
+				158744EF263F2F0B00548910 /* Utils */,
+				156D327A263F29A100FFF5D0 /* Services */,
+				156D3279263F0FDE00FFF5D0 /* Views */,
 				1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */,
-				1528B5B5263DDDB6008BFF8F /* ContentView.swift */,
 				1528B5B7263DDDB8008BFF8F /* Assets.xcassets */,
 				1528B5BC263DDDB8008BFF8F /* Info.plist */,
 				1528B5B9263DDDB8008BFF8F /* Preview Content */,
@@ -67,6 +77,32 @@
 				1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		156D3279263F0FDE00FFF5D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1528B5C2263DDF90008BFF8F /* LoginView.swift */,
+				158744F4263F750300548910 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		156D327A263F29A100FFF5D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				156D327B263F29B100FFF5D0 /* WebServices.swift */,
+				15AE14A82641C9A400E9309D /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		158744EF263F2F0B00548910 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				158744F0263F2F2200548910 /* Environment.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1528B5B6263DDDB6008BFF8F /* ContentView.swift in Sources */,
+				1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */,
 				1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */,
+				158744F5263F750300548910 /* HomeView.swift in Sources */,
+				156D327C263F29B100FFF5D0 /* WebServices.swift in Sources */,
+				158744F1263F2F2200548910 /* Environment.swift in Sources */,
+				15AE14A92641C9A400E9309D /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
