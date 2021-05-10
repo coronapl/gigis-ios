@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-let blue = Color(red: 72 / 255, green: 140 / 255, blue: 203 / 255)
-let orange = Color(red: 245 / 250, green: 130 / 255, blue: 32 / 255)
-let lightGrey = Color(red: 239 / 255, green: 243 / 255, blue: 244 / 255)
-
 struct LoginView: View {
 
     @EnvironmentObject var authService: AuthService
@@ -47,7 +43,7 @@ struct LoginView: View {
 
     var body: some View {
         ZStack {
-            blue.ignoresSafeArea()
+            Colors.blue.ignoresSafeArea()
             VStack {
                 LogoImage()
                 LoginTitle()
@@ -69,7 +65,7 @@ struct LoginButtonContent: View {
             .fontWeight(.semibold)
             .padding()
             .foregroundColor(.white)
-            .background(orange)
+            .background(Colors.orange)
             .cornerRadius(35)
             .padding(.bottom, 20)
     }
@@ -102,7 +98,7 @@ struct EmailInput: View {
     var body: some View {
         TextField("Email", text: $email)
             .padding()
-            .background(lightGrey)
+            .background(Colors.lightGrey)
             .cornerRadius(5)
             .padding(.bottom, 20)
     }
@@ -113,7 +109,7 @@ struct PasswordInput: View {
     var body: some View {
         SecureField("Contraseña", text: $password)
             .padding()
-            .background(lightGrey)
+            .background(Colors.lightGrey)
             .cornerRadius(5)
             .padding(.bottom, 20)
     }

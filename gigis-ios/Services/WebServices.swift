@@ -7,14 +7,6 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case invalidURL
-    case noData
-    case decodingError
-    case encodingError
-    case invalidCredentials
-}
-
 struct LoginRequestBody: Codable {
     let email: String
     let password: String
@@ -61,12 +53,15 @@ class WebServices {
         }.resume()
     }
     
-    func logout(token: String, completed: @escaping (Result<String, NetworkError>) -> Void) {
+    func logout(completed: @escaping (Result<String, NetworkError>) -> Void) {
 
         guard let endpoint = URL(string: Environment.apiUrl.appending("revoke")) else {
             completed(.failure(.invalidURL))
             return
         }
+
+        let defaults = UserDefaults.standard
+        let token: String = defaults.string(forKey: "token")!
 
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
