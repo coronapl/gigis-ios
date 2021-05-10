@@ -14,8 +14,8 @@ struct gigis_iosApp: App {
     var body: some Scene {
         WindowGroup {
             if authService.isAuthenticated {
-                HomeView()
-                    .environmentObject(authService)
+                    ItemsView()
+                        .environmentObject(authService)
             } else {
                 LoginView()
                     .environmentObject(authService)
