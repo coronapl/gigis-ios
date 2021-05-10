@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151808432649A41F002DEB2D /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151808422649A41F002DEB2D /* ItemView.swift */; };
+		151808452649BA94002DEB2D /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151808442649BA93002DEB2D /* CategoryView.swift */; };
 		1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */; };
 		1528B5B8263DDDB8008BFF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5B7263DDDB8008BFF8F /* Assets.xcassets */; };
 		1528B5BB263DDDB8008BFF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */; };
 		1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5C2263DDF90008BFF8F /* LoginView.swift */; };
 		156D327C263F29B100FFF5D0 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D327B263F29B100FFF5D0 /* WebServices.swift */; };
 		158744F1263F2F2200548910 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158744F0263F2F2200548910 /* Environment.swift */; };
-		158744F5263F750300548910 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158744F4263F750300548910 /* HomeView.swift */; };
+		15AAB18B264246CC00540E6C /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AAB18A264246CC00540E6C /* ItemsView.swift */; };
+		15AAB18D2642486D00540E6C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AAB18C2642486D00540E6C /* Colors.swift */; };
+		15AAB1902642493D00540E6C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AAB18F2642493D00540E6C /* Errors.swift */; };
+		15AAB19326424A1000540E6C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AAB19226424A1000540E6C /* Item.swift */; };
 		15AE14A92641C9A400E9309D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AE14A82641C9A400E9309D /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151808422649A41F002DEB2D /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		151808442649BA93002DEB2D /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		1528B5B0263DDDB6008BFF8F /* gigis-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gigis-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gigis_iosApp.swift; sourceTree = "<group>"; };
 		1528B5B7263DDDB8008BFF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,7 +33,10 @@
 		1528B5C2263DDF90008BFF8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		156D327B263F29B100FFF5D0 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		158744F0263F2F2200548910 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		158744F4263F750300548910 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		15AAB18A264246CC00540E6C /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
+		15AAB18C2642486D00540E6C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		15AAB18F2642493D00540E6C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		15AAB19226424A1000540E6C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		15AE14A82641C9A400E9309D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +70,7 @@
 		1528B5B2263DDDB6008BFF8F /* gigis-ios */ = {
 			isa = PBXGroup;
 			children = (
+				15AAB191264249F500540E6C /* Models */,
 				158744EF263F2F0B00548910 /* Utils */,
 				156D327A263F29A100FFF5D0 /* Services */,
 				156D3279263F0FDE00FFF5D0 /* Views */,
@@ -83,7 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				1528B5C2263DDF90008BFF8F /* LoginView.swift */,
-				158744F4263F750300548910 /* HomeView.swift */,
+				15AAB18A264246CC00540E6C /* ItemsView.swift */,
+				151808422649A41F002DEB2D /* ItemView.swift */,
+				151808442649BA93002DEB2D /* CategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,8 +114,18 @@
 			isa = PBXGroup;
 			children = (
 				158744F0263F2F2200548910 /* Environment.swift */,
+				15AAB18C2642486D00540E6C /* Colors.swift */,
+				15AAB18F2642493D00540E6C /* Errors.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		15AAB191264249F500540E6C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15AAB19226424A1000540E6C /* Item.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,11 +197,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15AAB19326424A1000540E6C /* Item.swift in Sources */,
 				1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */,
+				15AAB18D2642486D00540E6C /* Colors.swift in Sources */,
 				1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */,
-				158744F5263F750300548910 /* HomeView.swift in Sources */,
+				151808452649BA94002DEB2D /* CategoryView.swift in Sources */,
+				15AAB18B264246CC00540E6C /* ItemsView.swift in Sources */,
+				151808432649A41F002DEB2D /* ItemView.swift in Sources */,
 				156D327C263F29B100FFF5D0 /* WebServices.swift in Sources */,
 				158744F1263F2F2200548910 /* Environment.swift in Sources */,
+				15AAB1902642493D00540E6C /* Errors.swift in Sources */,
 				15AE14A92641C9A400E9309D /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
