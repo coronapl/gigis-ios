@@ -30,7 +30,16 @@ struct ItemView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView(item: Item(id: 1, name: "Rompecabezas", quantity: 100, measurementUnit: "piezas", canBeLoaned: 1, categoryId: 1, category: "Didáctico", icon: "no hay"))
+        ItemView(item: Item(
+            id: 1,
+            name: "Rompecabezas",
+            quantity: 100,
+            measurementUnit: "piezas",
+            canBeLoaned: 1,
+            categoryId: 1,
+            category: "Didáctico",
+            icon: "no hay"
+        ))
             .background(Colors.blue)
             .previewLayout(.fixed(width: 400, height: 60))
     }

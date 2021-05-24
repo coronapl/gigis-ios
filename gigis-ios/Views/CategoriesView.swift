@@ -18,7 +18,11 @@ struct CategoriesView: View {
                 Section(header: Text("Categorías")) {
                     ForEach(self.itemsController.items.keys.sorted(), id: \.self) { category in
                         NavigationLink(
-                            destination: ItemsView(items: self.itemsController.items[category]!, color: Colors.blue),
+                            destination: ItemsView(
+                                items: self.itemsController.items[category]!,
+                                color: Colors.blue,
+                                category: category
+                            ),
                             label: {
                                 Text(category)
                             })

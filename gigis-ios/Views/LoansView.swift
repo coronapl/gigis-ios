@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct LoansView: View {
+    @StateObject var loansController: LoansContoller = LoansContoller()
+    @EnvironmentObject var authService: AuthService
+
     var body: some View {
-        Text("Loans")
+        NavigationView {
+            List(self.loansController.loans, id: \.id) { loan in
+                LoanView(loan: loan)
+                    .background(Colors.green)
+            }
+            .navigationTitle("Mis préstamos")
+            .navigationBarItems(trailing: Button(action: {
+                self.authService.logout()
+            }, label: {
+                Text("Salir")
+            }))
+        }
     }
 }
 
