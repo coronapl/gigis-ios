@@ -13,6 +13,8 @@
 		1528B5BB263DDDB8008BFF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */; };
 		1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5C2263DDF90008BFF8F /* LoginView.swift */; };
 		154233CF265C25E900FD1A74 /* LoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233CE265C25E900FD1A74 /* LoansView.swift */; };
+		154233D1265C2AD200FD1A74 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233D0265C2AD200FD1A74 /* Loan.swift */; };
+		154233D3265C2BEF00FD1A74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233D2265C2BEF00FD1A74 /* User.swift */; };
 		155DFF382657160D009DF122 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155DFF372657160D009DF122 /* Authentication.swift */; };
 		155DFF3C26571F15009DF122 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155DFF3B26571F15009DF122 /* LoginController.swift */; };
 		158744F1263F2F2200548910 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158744F0263F2F2200548910 /* Environment.swift */; };
@@ -35,6 +37,8 @@
 		1528B5BC263DDDB8008BFF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; usesTabs = 1; };
 		1528B5C2263DDF90008BFF8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		154233CE265C25E900FD1A74 /* LoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansView.swift; sourceTree = "<group>"; };
+		154233D0265C2AD200FD1A74 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		154233D2265C2BEF00FD1A74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		155DFF372657160D009DF122 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		155DFF3B26571F15009DF122 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		158744F0263F2F2200548910 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				15AAB19226424A1000540E6C /* Item.swift */,
 				155DFF372657160D009DF122 /* Authentication.swift */,
+				154233D0265C2AD200FD1A74 /* Loan.swift */,
+				154233D2265C2BEF00FD1A74 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				15EE52FE2657864200CAFD32 /* ItemsController.swift in Sources */,
 				1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */,
 				15EE530026578F3B00CAFD32 /* MenuView.swift in Sources */,
+				154233D3265C2BEF00FD1A74 /* User.swift in Sources */,
 				154233CF265C25E900FD1A74 /* LoansView.swift in Sources */,
 				15B18743265B6B4B00886673 /* CategoriesView.swift in Sources */,
 				15AAB18B264246CC00540E6C /* ItemsView.swift in Sources */,
@@ -232,6 +239,7 @@
 				15AAB1902642493D00540E6C /* Errors.swift in Sources */,
 				15AE14A92641C9A400E9309D /* AuthService.swift in Sources */,
 				155DFF382657160D009DF122 /* Authentication.swift in Sources */,
+				154233D1265C2AD200FD1A74 /* Loan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
