@@ -9,49 +9,51 @@ import SwiftUI
 
 struct LoginView: View {
 
-    @EnvironmentObject var authService: AuthService
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var errorMessage: String = ""
+    var authService: AuthService
+    @ObservedObject var loginController: LoginController
 
-    private func login() {
-        if self.email.isEmpty || password.isEmpty {
-            self.errorMessage = "Campos incompletos."
-            return
-        }
-
-        // Request token from API
-        let defaults = UserDefaults.standard
-        WebServices().login(email: email, password: password, deviceName: UIDevice.current.name) { result in
-            switch result {
-                case .success(let token):
-                    // Save token to user defaults
-                    defaults.setValue(token, forKey: "token")
-
-                    // Authenticate user
-                    DispatchQueue.main.async {
-                        authService.isAuthenticated = true
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self.errorMessage = "Hubo un error. Intentar de nuevo."
-                    }
-                    print(error.localizedDescription)
-            }
-        }
+    init(authService: AuthService) {
+        self.authService = authService
+        self.loginController = LoginController(authService: self.authService)
     }
 
     var body: some View {
         ZStack {
             Colors.blue.ignoresSafeArea()
             VStack {
-                LogoImage()
-                LoginTitle()
-                EmailInput(email: self.$email)
-                PasswordInput(password: self.$password)
-                ErrorMessage(errorMessage: self.$errorMessage)
-                Button(action: { self.login() }, label: {
-                    LoginButtonContent()
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .padding(.bottom, 80)
+                    .frame(width: 242, height: 206, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("Sistema de inventario")
+                    .fontWeight(.semibold)
+                    .padding()
+                    .foregroundColor(.white)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .padding(.bottom, 20)
+                TextField("Celular", text: self.$loginController.phoneNumber)
+                    .padding()
+                    .background(Colors.lightGrey)
+                    .cornerRadius(5)
+                    .padding(.bottom, 20)
+                SecureField("Contraseña", text: self.$loginController.password)
+                    .padding()
+                    .background(Colors.lightGrey)
+                    .cornerRadius(5)
+                    .padding(.bottom, 20)
+                Text(self.loginController.errorMessage)
+                    .padding(.bottom, 20)
+                    .foregroundColor(.white)
+                Button(action: { self.loginController.login() }, label: {
+                    Text("Iniciar sesión")
+                        .fontWeight(.semibold)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Colors.orange)
+                        .cornerRadius(35)
+                        .padding(.bottom, 20)
                 })
             }
             .padding()
@@ -59,75 +61,10 @@ struct LoginView: View {
     }
 }
 
-struct LoginButtonContent: View {
-    var body: some View {
-        Text("Iniciar sesión")
-            .fontWeight(.semibold)
-            .padding()
-            .foregroundColor(.white)
-            .background(Colors.orange)
-            .cornerRadius(35)
-            .padding(.bottom, 20)
-    }
-}
-
-struct LogoImage: View {
-    var body: some View {
-        Image("logo")
-            .resizable()
-            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-            .padding()
-            .padding(.bottom, 80)
-            .frame(width: 242, height: 206, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct LoginTitle: View {
-    var body: some View {
-        Text("Sistema de inventario")
-            .fontWeight(.semibold)
-            .padding()
-            .foregroundColor(.white)
-            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            .padding(.bottom, 20)
-    }
-}
-
-struct EmailInput: View {
-    @Binding var email: String
-    var body: some View {
-        TextField("Email", text: $email)
-            .padding()
-            .background(Colors.lightGrey)
-            .cornerRadius(5)
-            .padding(.bottom, 20)
-    }
-}
-
-struct PasswordInput: View {
-    @Binding var password: String
-    var body: some View {
-        SecureField("Contraseña", text: $password)
-            .padding()
-            .background(Colors.lightGrey)
-            .cornerRadius(5)
-            .padding(.bottom, 20)
-    }
-}
-
-struct ErrorMessage: View {
-    @Binding var errorMessage: String
-    var body: some View {
-        Text(errorMessage)
-            .padding(.bottom, 20)
-            .foregroundColor(.white)
-    }
-}
-
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView()
+            LoginView(authService: AuthService())
         }
     }
 }

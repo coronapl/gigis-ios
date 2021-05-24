@@ -14,11 +14,10 @@ struct gigis_iosApp: App {
     var body: some Scene {
         WindowGroup {
             if authService.isAuthenticated {
-                    ItemsView()
+                    MenuView()
                         .environmentObject(authService)
             } else {
-                LoginView()
-                    .environmentObject(authService)
+                LoginView(authService: authService)
             }
         }
     }

@@ -28,3 +28,36 @@ struct Item: Codable {
         case icon
     }
 }
+
+final class ItemApi {
+
+    public static func all(completionHandler: @escaping (Result<[Item], NetworkError>) -> Void) {
+        guard let endpoint = URL(string: Environment.apiUrl.appending("items")) else {
+            completionHandler(.failure(.invalidURL))
+            return
+        }
+
+        guard let token = UserDefaults.standard.string(forKey: "token") else {
+            completionHandler(.failure(.noToken))
+            return
+        }
+
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completionHandler(.failure(.noData))
+                return
+            }
+
+            guard let itemsResponse = try? JSONDecoder().decode([Item].self, from: data) else {
+                completionHandler(.failure(.decodingError))
+                return
+            }
+
+            completionHandler(.success(itemsResponse))
+        }.resume()
+    }
+}
