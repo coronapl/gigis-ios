@@ -13,6 +13,10 @@
 		1528B5BB263DDDB8008BFF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */; };
 		1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5C2263DDF90008BFF8F /* LoginView.swift */; };
 		154233CF265C25E900FD1A74 /* LoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233CE265C25E900FD1A74 /* LoansView.swift */; };
+		154233D1265C2AD200FD1A74 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233D0265C2AD200FD1A74 /* Loan.swift */; };
+		154233D3265C2BEF00FD1A74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233D2265C2BEF00FD1A74 /* User.swift */; };
+		154233D5265C2FE100FD1A74 /* LoansController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233D4265C2FE100FD1A74 /* LoansController.swift */; };
+		154233D7265C34A500FD1A74 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154233D6265C34A500FD1A74 /* Category.swift */; };
 		155DFF382657160D009DF122 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155DFF372657160D009DF122 /* Authentication.swift */; };
 		155DFF3C26571F15009DF122 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155DFF3B26571F15009DF122 /* LoginController.swift */; };
 		158744F1263F2F2200548910 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158744F0263F2F2200548910 /* Environment.swift */; };
@@ -22,6 +26,7 @@
 		15AAB19326424A1000540E6C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AAB19226424A1000540E6C /* Item.swift */; };
 		15AE14A92641C9A400E9309D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AE14A82641C9A400E9309D /* AuthService.swift */; };
 		15B18743265B6B4B00886673 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B18742265B6B4B00886673 /* CategoriesView.swift */; };
+		15CE0661265C55FA004B4457 /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE0660265C55FA004B4457 /* LoanView.swift */; };
 		15EE52FE2657864200CAFD32 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EE52FD2657864200CAFD32 /* ItemsController.swift */; };
 		15EE530026578F3B00CAFD32 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EE52FF26578F3B00CAFD32 /* MenuView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +40,10 @@
 		1528B5BC263DDDB8008BFF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; usesTabs = 1; };
 		1528B5C2263DDF90008BFF8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		154233CE265C25E900FD1A74 /* LoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansView.swift; sourceTree = "<group>"; };
+		154233D0265C2AD200FD1A74 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		154233D2265C2BEF00FD1A74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		154233D4265C2FE100FD1A74 /* LoansController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansController.swift; sourceTree = "<group>"; };
+		154233D6265C34A500FD1A74 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		155DFF372657160D009DF122 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		155DFF3B26571F15009DF122 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		158744F0263F2F2200548910 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -44,6 +53,7 @@
 		15AAB19226424A1000540E6C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		15AE14A82641C9A400E9309D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		15B18742265B6B4B00886673 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		15CE0660265C55FA004B4457 /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		15EE52FD2657864200CAFD32 /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
 		15EE52FF26578F3B00CAFD32 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +114,7 @@
 			children = (
 				155DFF3B26571F15009DF122 /* LoginController.swift */,
 				15EE52FD2657864200CAFD32 /* ItemsController.swift */,
+				154233D4265C2FE100FD1A74 /* LoansController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +128,7 @@
 				15EE52FF26578F3B00CAFD32 /* MenuView.swift */,
 				15B18742265B6B4B00886673 /* CategoriesView.swift */,
 				154233CE265C25E900FD1A74 /* LoansView.swift */,
+				15CE0660265C55FA004B4457 /* LoanView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +156,9 @@
 			children = (
 				15AAB19226424A1000540E6C /* Item.swift */,
 				155DFF372657160D009DF122 /* Authentication.swift */,
+				154233D0265C2AD200FD1A74 /* Loan.swift */,
+				154233D2265C2BEF00FD1A74 /* User.swift */,
+				154233D6265C34A500FD1A74 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,19 +234,24 @@
 			files = (
 				155DFF3C26571F15009DF122 /* LoginController.swift in Sources */,
 				15AAB19326424A1000540E6C /* Item.swift in Sources */,
+				154233D7265C34A500FD1A74 /* Category.swift in Sources */,
 				1528B5C3263DDF90008BFF8F /* LoginView.swift in Sources */,
 				15AAB18D2642486D00540E6C /* Colors.swift in Sources */,
 				15EE52FE2657864200CAFD32 /* ItemsController.swift in Sources */,
+				154233D5265C2FE100FD1A74 /* LoansController.swift in Sources */,
 				1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */,
 				15EE530026578F3B00CAFD32 /* MenuView.swift in Sources */,
+				154233D3265C2BEF00FD1A74 /* User.swift in Sources */,
 				154233CF265C25E900FD1A74 /* LoansView.swift in Sources */,
 				15B18743265B6B4B00886673 /* CategoriesView.swift in Sources */,
 				15AAB18B264246CC00540E6C /* ItemsView.swift in Sources */,
 				151808432649A41F002DEB2D /* ItemView.swift in Sources */,
+				15CE0661265C55FA004B4457 /* LoanView.swift in Sources */,
 				158744F1263F2F2200548910 /* Environment.swift in Sources */,
 				15AAB1902642493D00540E6C /* Errors.swift in Sources */,
 				15AE14A92641C9A400E9309D /* AuthService.swift in Sources */,
 				155DFF382657160D009DF122 /* Authentication.swift in Sources */,
+				154233D1265C2AD200FD1A74 /* Loan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
