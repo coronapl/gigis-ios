@@ -15,7 +15,7 @@ struct Loan: Codable {
     let itemId: Int
     let userId: Int
     let user: User
-    let item: LoanItem
+    let item: Item
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,26 +26,6 @@ struct Loan: Codable {
         case userId = "user_id"
         case user
         case item
-    }
-}
-
-struct LoanItem: Codable {
-    let id: Int
-    let name: String
-    let quantity: Int
-    let measurementUnit: String
-    let canBeLoaned: Int
-    let categoryId: Int
-    let category: Category
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case quantity
-        case measurementUnit = "measurement_unit"
-        case canBeLoaned = "can_be_loaned"
-        case categoryId = "category_id"
-        case category
     }
 }
 
@@ -77,6 +57,36 @@ final class LoanApi {
             }
 
             completionHandler(.success(loansResponse))
+        }.resume()
+    }
+
+    public static func returnLoan(loanId: Int, completionHandler: @escaping (Result<ApiResponse, NetworkError>) -> Void) {
+        guard let endpoint = URL(string: Environment.apiUrl.appending("loans/\(loanId)/return")) else {
+            completionHandler(.failure(.invalidURL))
+            return
+        }
+
+        guard let token = UserDefaults.standard.string(forKey: "token") else {
+            completionHandler(.failure(.noToken))
+            return
+        }
+
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completionHandler(.failure(.noData))
+                return
+            }
+
+            guard let apiResponse = try? JSONDecoder().decode(ApiResponse.self, from: data) else {
+                completionHandler(.failure(.decodingError))
+                return
+            }
+
+            completionHandler(.success(apiResponse))
         }.resume()
     }
 }

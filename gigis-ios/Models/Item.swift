@@ -13,9 +13,7 @@ struct Item: Codable {
     let quantity: Int
     let measurementUnit: String
     let canBeLoaned: Int
-    let categoryId: Int
-    let category: String
-    let icon: String
+    let category: Category?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,9 +21,7 @@ struct Item: Codable {
         case quantity
         case measurementUnit = "measurement_unit"
         case canBeLoaned = "can_be_loaned"
-        case categoryId = "category_id"
         case category
-        case icon
     }
 }
 
