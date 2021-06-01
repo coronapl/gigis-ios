@@ -38,4 +38,19 @@ class ItemsController: ObservableObject {
             }
         }
     }
+
+    public func takeItem(id: Int, quantity: Int) {
+        ItemApi.takeItem(id: id, quantity: quantity) { result in
+            switch(result) {
+                case .success(let apiResponse):
+                    print(apiResponse)
+                    DispatchQueue.main.async {
+                        self.getItems()
+                    }
+                case .failure(let error):
+                    print(error)
+            }
+        }
+
+    }
 }

@@ -22,7 +22,7 @@ struct CategoriesView: View {
                                 items: self.itemsController.items[category]!,
                                 color: Colors.blue,
                                 category: category
-                            ),
+                            ).environmentObject(itemsController),
                             label: {
                                 Text(category)
                             })

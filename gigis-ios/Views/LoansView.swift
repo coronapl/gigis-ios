@@ -9,7 +9,7 @@ import SwiftUI
 import PartialSheet
 
 struct LoansView: View {
-    @StateObject var loansController: LoansContoller = LoansContoller()
+    @EnvironmentObject var loansController: LoansContoller
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var partialSheet : PartialSheetManager
 

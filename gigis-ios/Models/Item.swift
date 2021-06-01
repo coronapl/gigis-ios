@@ -25,6 +25,10 @@ struct Item: Codable {
     }
 }
 
+struct TakeItemBody: Codable {
+    var quantity: Int
+}
+
 final class ItemApi {
 
     public static func all(completionHandler: @escaping (Result<[Item], NetworkError>) -> Void) {
@@ -54,6 +58,40 @@ final class ItemApi {
             }
 
             completionHandler(.success(itemsResponse))
+        }.resume()
+    }
+
+    public static func takeItem(id: Int, quantity: Int, completionHandler: @escaping (Result<ApiResponse, NetworkError>) -> Void) {
+        guard let endpoint = URL(string: Environment.apiUrl.appending("items/\(id)/output")) else {
+            completionHandler(.failure(.invalidURL))
+            return
+        }
+
+        guard let token = UserDefaults.standard.string(forKey: "token") else {
+            completionHandler(.failure(.noToken))
+            return
+        }
+
+        let body = TakeItemBody(quantity: quantity)
+
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completionHandler(.failure(.noData))
+                return
+            }
+
+            guard let apiResponse = try? JSONDecoder().decode(ApiResponse.self, from: data) else {
+                completionHandler(.failure(.decodingError))
+                return
+            }
+
+            completionHandler(.success(apiResponse))
         }.resume()
     }
 }

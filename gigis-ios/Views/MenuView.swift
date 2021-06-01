@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
 
     @EnvironmentObject var authService: AuthService
+    @StateObject var loansController: LoansContoller = LoansContoller()
 
     var body: some View {
         TabView {
@@ -21,6 +22,7 @@ struct MenuView: View {
                 .tabItem {
                     Label("Regresar", systemImage: "square.and.arrow.down")
                 }
+                .environmentObject(loansController)
         }
     }
 }
