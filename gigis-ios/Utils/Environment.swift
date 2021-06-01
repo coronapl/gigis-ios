@@ -8,5 +8,5 @@
 import Foundation
 
 struct Environment {
-    static let apiUrl = "http://192.168.5.227:3000/api/"
+    static let apiUrl = "https://api.inventario.gigismexico.com/api/"
 }
