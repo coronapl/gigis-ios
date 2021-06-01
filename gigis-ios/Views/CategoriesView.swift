@@ -36,6 +36,8 @@ struct CategoriesView: View {
                 Text("Salir")
             }))
             .navigationTitle("Inventario")
+        }.onAppear {
+            self.itemsController.getItems()
         }
     }
 }

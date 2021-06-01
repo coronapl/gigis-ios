@@ -18,7 +18,7 @@ struct LoanView: View {
                 Label("\(loan.quantity) \(loan.item.measurementUnit)", systemImage: "number")
                     .accessibilityElement(children: .ignore)
                 Spacer()
-                Label(loan.item.category.name, systemImage: "folder")
+                Label(loan.item.category!.name, systemImage: "folder")
                     .padding(.trailing, 20)
             }
             .font(.caption)
@@ -45,13 +45,12 @@ struct LoanView_Previews: PreviewProvider {
                 createdAt: nil,
                 updatedAt: nil
             ),
-            item: LoanItem(
+            item: Item(
                 id: 1,
                 name: "Tijeras",
                 quantity: 5,
                 measurementUnit: "Piezas",
                 canBeLoaned: 1,
-                categoryId: 1,
                 category: Category(
                     id: 1,
                     name: "Papeleria",
