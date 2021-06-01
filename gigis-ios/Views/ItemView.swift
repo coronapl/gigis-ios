@@ -18,7 +18,7 @@ struct ItemView: View {
                 Label("\(item.quantity) \(item.measurementUnit)", systemImage: "number")
                     .accessibilityElement(children: .ignore)
                 Spacer()
-                Label("\(item.category)", systemImage: "folder")
+                Label("\(item.category!.name)", systemImage: "folder")
                     .padding(.trailing, 20)
             }
             .font(.caption)
@@ -36,9 +36,7 @@ struct ItemView_Previews: PreviewProvider {
             quantity: 100,
             measurementUnit: "piezas",
             canBeLoaned: 1,
-            categoryId: 1,
-            category: "Didáctico",
-            icon: "no hay"
+            category: Category(id: 1, name: "Juegos", icon: "Games")
         ))
             .background(Colors.blue)
             .previewLayout(.fixed(width: 400, height: 60))

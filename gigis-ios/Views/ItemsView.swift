@@ -31,9 +31,7 @@ struct ItemsView_Previews: PreviewProvider {
                 quantity: 10,
                 measurementUnit: "Bolsas",
                 canBeLoaned: 0,
-                categoryId: 1,
-                category: "Cocina",
-                icon: "kitchen")
+                category: Category(id: 1, name: "Cocina", icon: "Kitchen"))
         ],
         color: Colors.blue,
         category: "Cocina")

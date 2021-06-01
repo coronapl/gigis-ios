@@ -23,11 +23,13 @@ class ItemsController: ObservableObject {
                     DispatchQueue.main.async {
                         // Create dictionary -> category => [items]
                         for item in items {
-                            if self.items.keys.contains(item.category) {
-                                self.items[item.category]!.append(item)
-                            } else {
-                                self.items[item.category] = []
-                                self.items[item.category]!.append(item)
+                            if item.category != nil {
+                                if self.items.keys.contains(item.category!.name) {
+                                    self.items[item.category!.name]!.append(item)
+                                } else {
+                                    self.items[item.category!.name] = []
+                                    self.items[item.category!.name]!.append(item)
+                                }
                             }
                         }
                     }
