@@ -19,10 +19,9 @@ struct CategoriesView: View {
                     ForEach(self.itemsController.items.keys.sorted(), id: \.self) { category in
                         NavigationLink(
                             destination: ItemsView(
-                                items: self.itemsController.items[category]!,
                                 color: Colors.blue,
                                 category: category
-                            ),
+                            ).environmentObject(itemsController),
                             label: {
                                 Text(category)
                             })
@@ -36,6 +35,8 @@ struct CategoriesView: View {
                 Text("Salir")
             }))
             .navigationTitle("Inventario")
+        }.onAppear {
+            self.itemsController.getItems()
         }
     }
 }

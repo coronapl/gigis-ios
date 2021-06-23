@@ -22,12 +22,15 @@ class ItemsController: ObservableObject {
                 case .success(let items):
                     DispatchQueue.main.async {
                         // Create dictionary -> category => [items]
+                        self.items = [:]
                         for item in items {
-                            if self.items.keys.contains(item.category) {
-                                self.items[item.category]!.append(item)
-                            } else {
-                                self.items[item.category] = []
-                                self.items[item.category]!.append(item)
+                            if item.category != nil && item.quantity > 0 {
+                                if self.items.keys.contains(item.category!.name) {
+                                    self.items[item.category!.name]!.append(item)
+                                } else {
+                                    self.items[item.category!.name] = []
+                                    self.items[item.category!.name]!.append(item)
+                                }
                             }
                         }
                     }
@@ -35,5 +38,19 @@ class ItemsController: ObservableObject {
                     print(error)
             }
         }
+    }
+
+    public func takeItem(id: Int, quantity: Int) {
+        ItemApi.takeItem(id: id, quantity: quantity) { result in
+            switch(result) {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.getItems()
+                    }
+                case .failure(let error):
+                    print(error)
+            }
+        }
+
     }
 }

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MenuView: View {
 
-    @EnvironmentObject var authService: AuthService
-
     var body: some View {
         TabView {
             CategoriesView()

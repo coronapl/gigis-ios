@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 @main
 struct gigis_iosApp: App {
-    @StateObject private var authService = AuthService()
+    @StateObject private var authService: AuthService = AuthService()
+    @StateObject private var sheetManager: PartialSheetManager = PartialSheetManager()
 
     var body: some Scene {
         WindowGroup {
             if authService.isAuthenticated {
                     MenuView()
                         .environmentObject(authService)
+                        .environmentObject(sheetManager)
             } else {
                 LoginView(authService: authService)
             }

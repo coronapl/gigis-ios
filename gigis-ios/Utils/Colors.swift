@@ -13,5 +13,7 @@ struct Colors {
     static var orange = Color(red: 245 / 250, green: 130 / 255, blue: 32 / 255)
     static var green = Color(red: 122 / 250, green: 193 / 255, blue: 67 / 255)
     static var yellow = Color(red: 255 / 250, green: 201 / 255, blue: 7 / 255)
+    static var pink = Color(red: 215 / 250, green: 133 / 255, blue: 184 / 255)
+    static var aqua = Color(red: 0 / 250, green: 168 / 255, blue: 157 / 255)
     static var lightGrey = Color(red: 239 / 255, green: 243 / 255, blue: 244 / 255)
 }
