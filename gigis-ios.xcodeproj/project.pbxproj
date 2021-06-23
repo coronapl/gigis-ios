@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		151808432649A41F002DEB2D /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151808422649A41F002DEB2D /* ItemView.swift */; };
 		1528B5B4263DDDB6008BFF8F /* gigis_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */; };
 		1528B5B8263DDDB8008BFF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5B7263DDDB8008BFF8F /* Assets.xcassets */; };
 		1528B5BB263DDDB8008BFF8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1528B5BA263DDDB8008BFF8F /* Preview Assets.xcassets */; };
@@ -28,13 +27,11 @@
 		15B18743265B6B4B00886673 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B18742265B6B4B00886673 /* CategoriesView.swift */; };
 		15B36FEB266692B60059A34B /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 15B36FEA266692B60059A34B /* PartialSheet */; };
 		15B36FED2666A5480059A34B /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B36FEC2666A5480059A34B /* ApiResponse.swift */; };
-		15CE0661265C55FA004B4457 /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE0660265C55FA004B4457 /* LoanView.swift */; };
 		15EE52FE2657864200CAFD32 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EE52FD2657864200CAFD32 /* ItemsController.swift */; };
 		15EE530026578F3B00CAFD32 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EE52FF26578F3B00CAFD32 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		151808422649A41F002DEB2D /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		1528B5B0263DDDB6008BFF8F /* gigis-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gigis-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1528B5B3263DDDB6008BFF8F /* gigis_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gigis_iosApp.swift; sourceTree = "<group>"; };
 		1528B5B7263DDDB8008BFF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +53,6 @@
 		15AE14A82641C9A400E9309D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		15B18742265B6B4B00886673 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		15B36FEC2666A5480059A34B /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
-		15CE0660265C55FA004B4457 /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		15EE52FD2657864200CAFD32 /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
 		15EE52FF26578F3B00CAFD32 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,11 +124,9 @@
 			children = (
 				1528B5C2263DDF90008BFF8F /* LoginView.swift */,
 				15AAB18A264246CC00540E6C /* ItemsView.swift */,
-				151808422649A41F002DEB2D /* ItemView.swift */,
 				15EE52FF26578F3B00CAFD32 /* MenuView.swift */,
 				15B18742265B6B4B00886673 /* CategoriesView.swift */,
 				154233CE265C25E900FD1A74 /* LoansView.swift */,
-				15CE0660265C55FA004B4457 /* LoanView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,8 +251,6 @@
 				154233CF265C25E900FD1A74 /* LoansView.swift in Sources */,
 				15B18743265B6B4B00886673 /* CategoriesView.swift in Sources */,
 				15AAB18B264246CC00540E6C /* ItemsView.swift in Sources */,
-				151808432649A41F002DEB2D /* ItemView.swift in Sources */,
-				15CE0661265C55FA004B4457 /* LoanView.swift in Sources */,
 				158744F1263F2F2200548910 /* Environment.swift in Sources */,
 				15AAB1902642493D00540E6C /* Errors.swift in Sources */,
 				15AE14A92641C9A400E9309D /* AuthService.swift in Sources */,

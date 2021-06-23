@@ -30,8 +30,7 @@ class LoansContoller: ObservableObject {
     public func returnPersonalLoan(loanId: Int) {
         LoanApi.returnLoan(loanId: loanId) { result in
             switch(result) {
-                case .success(let apiResponse):
-                    print(apiResponse)
+                case .success(_):
                     DispatchQueue.main.async {
                         self.getPersonalLoans()
                     }

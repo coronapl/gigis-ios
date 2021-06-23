@@ -10,9 +10,8 @@ import PartialSheet
 
 @main
 struct gigis_iosApp: App {
-    @StateObject private var authService = AuthService()
-
-    let sheetManager: PartialSheetManager = PartialSheetManager()
+    @StateObject private var authService: AuthService = AuthService()
+    @StateObject private var sheetManager: PartialSheetManager = PartialSheetManager()
 
     var body: some Scene {
         WindowGroup {

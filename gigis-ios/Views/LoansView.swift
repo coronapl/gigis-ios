@@ -9,13 +9,17 @@ import SwiftUI
 import PartialSheet
 
 struct LoansView: View {
-    @EnvironmentObject var loansController: LoansContoller
+
+    @StateObject var loansController: LoansContoller = LoansContoller()
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var partialSheet : PartialSheetManager
+    @State private var showingAlert = false
+
+    let colors = [Colors.blue, Colors.orange, Colors.green, Colors.yellow, Colors.pink, Colors.aqua]
 
     var body: some View {
         NavigationView {
-            List(self.loansController.loans, id: \.id) { loan in
+            List(self.loansController.loans.indices, id: \.self) { index in
                 Button(action: {
                     self.partialSheet.showPartialSheet {
                         print("dismissed")
@@ -24,13 +28,14 @@ struct LoansView: View {
                             Text("¿Quiéres regresar el siguiente préstamo?")
                                 .font(.headline)
                                 .padding(.bottom)
-                            Text("Artículo: \(loan.item.name)")
+                            Text("Artículo: \(self.loansController.loans[index].item.name)")
                                 .font(.caption)
-                            Text("Cantidad: \(loan.quantity)")
+                            Text("Cantidad: \(self.loansController.loans[index].quantity)")
                                 .font(.caption)
                             Button(action: {
-                                self.loansController.returnPersonalLoan(loanId: loan.id)
+                                self.loansController.returnPersonalLoan(loanId: self.loansController.loans[index].id)
                                 self.partialSheet.closePartialSheet()
+                                self.showingAlert = true
                             }, label: {
                                 Text("Regresar")
                                     .fontWeight(.semibold)
@@ -43,8 +48,22 @@ struct LoansView: View {
                         }
                     }
                 }, label: {
-                    LoanView(loan: loan)
-                        .background(Colors.green)
+                    VStack(alignment: .leading) {
+                        Text(self.loansController.loans[index].item.name)
+                            .font(.headline)
+                        Spacer()
+                        HStack {
+                            Label("\(self.loansController.loans[index].quantity) \(self.loansController.loans[index].item.measurementUnit)", systemImage: "number")
+                                .accessibilityElement(children: .ignore)
+                            Spacer()
+                            Label(self.loansController.loans[index].item.category!.name, systemImage: "folder")
+                                .padding(.trailing, 20)
+                        }
+                        .font(.caption)
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(colors[index % 6])
                 })
             }
             .navigationTitle("Mis préstamos")
@@ -53,10 +72,13 @@ struct LoansView: View {
             }, label: {
                 Text("Salir")
             }))
-            .addPartialSheet()
-            .onAppear {
-                self.loansController.getPersonalLoans()
-            }
+        }
+        .addPartialSheet()
+        .alert(isPresented: self.$showingAlert) {
+            Alert(title: Text("El préstamo se ha regresado correctamente."))
+        }
+        .onAppear {
+            self.loansController.getPersonalLoans()
         }
     }
 }

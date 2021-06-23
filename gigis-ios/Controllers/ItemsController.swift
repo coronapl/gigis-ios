@@ -22,8 +22,9 @@ class ItemsController: ObservableObject {
                 case .success(let items):
                     DispatchQueue.main.async {
                         // Create dictionary -> category => [items]
+                        self.items = [:]
                         for item in items {
-                            if item.category != nil {
+                            if item.category != nil && item.quantity > 0 {
                                 if self.items.keys.contains(item.category!.name) {
                                     self.items[item.category!.name]!.append(item)
                                 } else {
@@ -42,8 +43,7 @@ class ItemsController: ObservableObject {
     public func takeItem(id: Int, quantity: Int) {
         ItemApi.takeItem(id: id, quantity: quantity) { result in
             switch(result) {
-                case .success(let apiResponse):
-                    print(apiResponse)
+                case .success(_):
                     DispatchQueue.main.async {
                         self.getItems()
                     }
